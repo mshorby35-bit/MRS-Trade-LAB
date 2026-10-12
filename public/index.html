@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="NFL Trade Lab — live fantasy football trade calculator." />
+  <title>NFL Trade Lab</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <div class="brand">NFL Trade Lab</div>
+        <div class="data-status" id="dataStatus">Loading live player data…</div>
+      </div>
+      <div class="menu-wrap">
+        <button class="menu-btn" id="menuBtn">League Setup ▾</button>
+        <div class="menu" id="menu">
+          <div class="menu-section">
+            <label>League type</label>
+            <select id="leagueType"><option value="false">Redraft</option><option value="true">Dynasty</option></select>
+          </div>
+          <div class="menu-section">
+            <label>League format</label>
+            <select id="format"><option value="1">1 QB</option><option value="2">Superflex / 2 QB</option></select>
+          </div>
+          <div class="menu-section">
+            <label>Scoring</label>
+            <select id="scoring"><option value="1">PPR</option><option value="0.5">Half PPR</option><option value="0">Standard</option></select>
+          </div>
+          <div class="menu-section">
+            <label>League size</label>
+            <select id="size"><option value="10">10 teams</option><option value="12" selected>12 teams</option><option value="14">14 teams</option></select>
+          </div>
+          <div class="menu-note">Changing a setting reloads current market values for that format.</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">LIVE FANTASY TRADE ANALYSIS</div>
+      <h1>See the balance before you make the deal.</h1>
+      <p class="sub">Search the live player pool, build multi-player trades, and compare market value, season production, trend, and package value in one view.</p>
+    </section>
+
+    <main class="trade-shell">
+      <section class="trade-head">
+        <div class="team-panel">
+          <div class="team-title"><h2>You Give</h2><span>Players you send</span></div>
+          <div id="giveSlots"></div>
+          <button class="add" id="addGive">+ Add player</button>
+        </div>
+        <div class="team-panel">
+          <div class="team-title"><h2>You Get</h2><span>Players you receive</span></div>
+          <div id="getSlots"></div>
+          <button class="add" id="addGet">+ Add player</button>
+        </div>
+      </section>
+
+      <section class="field-zone">
+        <div class="balance-top">
+          <div class="section-label">Trade balance</div>
+          <div class="small-indicator" id="indicator">Select players to begin</div>
+        </div>
+
+        <div class="balance-hero">
+          <div class="side-stat left"><div class="label">You Give</div><div class="pct" id="leftPct">50%</div></div>
+          <div class="field">
+            <div class="endzone left">You Give</div>
+            <div class="endzone right">You Get</div>
+            <div class="fairzone"></div>
+            <div class="midline"></div>
+            <div class="fair-label">Fair</div>
+            <div class="side-label left">You Give</div>
+            <div class="side-label right">You Get</div>
+            <div class="zone-row">
+              <div class="zone z1">Give Too Much</div>
+              <div class="zone z2">Slight Overpay</div>
+              <div class="zone z3">Fair</div>
+              <div class="zone z4">Slight Edge</div>
+              <div class="zone z5">Big Edge</div>
+            </div>
+            <div class="marker" id="marker">
+              <div class="field-callout" id="callout">Even</div>
+              <div class="marker-x">X</div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="yards"><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>40</span><span>30</span><span>20</span><span>10</span></div>
+          </div>
+          <div class="side-stat right"><div class="label">You Get</div><div class="pct" id="rightPct">50%</div></div>
+        </div>
+
+        <div class="package-row">
+          <div class="metric-help">
+            <button class="package-pill" id="rawPill">Raw: 0 vs 0 <span class="info-dot">i</span></button>
+            <div class="tooltip"><strong>Raw Value</strong>The straight sum of each player's model score before a multi-player adjustment.</div>
+          </div>
+          <div class="metric-help">
+            <button class="package-pill" id="adjPill">Adjusted: 0 vs 0 <span class="info-dot">i</span></button>
+            <div class="tooltip"><strong>Adjusted Value</strong>Applies a consolidation/roster-space discount to the second, third, and later assets in a package.</div>
+          </div>
+          <div class="metric-help">
+            <button class="package-pill" id="diffPill">Difference: 0 <span class="info-dot">i</span></button>
+            <div class="tooltip"><strong>Difference</strong>The gap between the two adjusted packages in model-score points and as a share of the deal's total value.</div>
+          </div>
+        </div>
+
+        <div class="verdict-row">
+          <div class="grade"><small>Trade grade</small><strong id="grade">Waiting for players</strong></div>
+          <div class="explain" id="explain">Add at least one player to each side.</div>
+        </div>
+      </section>
+
+      <section class="detail-row">
+        <div><div class="stack-title">You Give Value</div><div id="giveCards"></div></div>
+        <div><div class="stack-title">You Get Value</div><div id="getCards"></div></div>
+      </section>
+
+      <section class="method">
+        <div>
+          <div class="stack-title">Model inputs</div>
+          <p><strong>75% market</strong> · <strong>20% season production</strong> · <strong>5% 30-day trend</strong>. Market values are normalized within the selected league format.</p>
+        </div>
+        <div class="sources" id="sourceChips"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="slotTemplate">
+    <div class="slot">
+      <div class="search-wrap">
+        <input class="player-input" type="text" placeholder="Search any QB, RB, WR, or TE…" autocomplete="off" />
+        <div class="suggestions"></div>
+      </div>
+      <button class="remove" aria-label="Remove player">×</button>
+    </div>
+  </template>
+
+  <script src="/app.js"></script>
+</body>
+</html>

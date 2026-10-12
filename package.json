@@ -1,0 +1,13 @@
+{
+  "name": "nfl-trade-lab",
+  "version": "9.0.0",
+  "private": true,
+  "description": "Full-stack fantasy football trade calculator using FantasyCalc market values and Sleeper player/stat data.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "players": [
+    {
+      "id": "4038941",
+      "name": "Justin Herbert",
+      "position": "QB",
+      "team": "LAC",
+      "marketValue": 2141,
+      "trend30Day": -50,
+      "modelScore": 72,
+      "headshot": "https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/4038941.png&w=350&h=254",
+      "fallbackHeadshot": "https://sleepercdn.com/content/nfl/players/6797.jpg",
+      "profile": "https://www.nfl.com/players/justin-herbert/",
+      "stats": [
+        [
+          937,
+          "PASS YDS"
+        ],
+        [
+          5,
+          "PASS TD"
+        ],
+        [
+          7,
+          "INT"
+        ],
+        [
+          67,
+          "RUSH YDS"
+        ]
+      ],
+      "source": {
+        "value": "Fallback snapshot",
+        "stats": "Fallback snapshot",
+        "image": "ESPN"
+      }
+    },
+    {
+      "id": "4429080",
+      "name": "Jaxon Smith-Njigba",
+      "position": "WR",
+      "team": "SEA",
+      "marketValue": 9751,
+      "trend30Day": 1181,
+      "modelScore": 88,
+      "headshot": "https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/4429080.png&w=350&h=254",
+      "fallbackHeadshot": "https://sleepercdn.com/content/nfl/players/9493.jpg",
+      "profile": "https://www.nfl.com/players/jaxon-smith-njigba/",
+      "stats": [
+        [
+          37,
+          "REC"
+        ],
+        [
+          583,
+          "REC YDS"
+        ],
+        [
+          7,
+          "TD"
+        ],
+        [
+          52,
+          "TGT"
+        ]
+      ],
+      "source": {
+        "value": "Fallback snapshot",
+        "stats": "Fallback snapshot",
+        "image": "ESPN"
+      }
+    },
+    {
+      "id": "3918298",
+      "name": "Josh Allen",
+      "position": "QB",
+      "team": "BUF",
+      "marketValue": 5563,
+      "trend30Day": 0,
+      "modelScore": 95,
+      "headshot": "https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/3918298.png&w=350&h=254",
+      "fallbackHeadshot": "https://sleepercdn.com/content/nfl/players/4984.jpg",
+      "profile": "https://www.nfl.com/players/josh-allen/",
+      "stats": [
+        [
+          1039,
+          "PASS YDS"
+        ],
+        [
+          6,
+          "PASS TD"
+        ],
+        [
+          3,
+          "INT"
+        ],
+        [
+          192,
+          "RUSH YDS"
+        ]
+      ],
+      "source": {
+        "value": "Fallback snapshot",
+        "stats": "Fallback snapshot",
+        "image": "ESPN"
+      }
+    },
+    {
+      "id": "4362628",
+      "name": "Ja'Marr Chase",
+      "position": "WR",
+      "team": "CIN",
+      "marketValue": 7985,
+      "trend30Day": -1405,
+      "modelScore": 98,
+      "headshot": "https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/4362628.png&w=350&h=254",
+      "fallbackHeadshot": "https://sleepercdn.com/content/nfl/players/7564.jpg",
+      "profile": "https://www.nfl.com/players/ja-marr-chase/",
+      "stats": [
+        [
+          27,
+          "REC"
+        ],
+        [
+          289,
+          "REC YDS"
+        ],
+        [
+          4,
+          "TD"
+        ],
+        [
+          42,
+          "TGT"
+        ]
+      ],
+      "source": {
+        "value": "Fallback snapshot",
+        "stats": "Fallback snapshot",
+        "image": "ESPN"
+      }
+    }
+  ]
+}
